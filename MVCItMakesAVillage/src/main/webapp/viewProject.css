@@ -1,0 +1,99 @@
+.closed{
+	color: red;
+}
+
+.open{
+	color: green;
+}
+
+#map-canvas {
+    justify-content: center;
+    height: 300px;
+    width: 100%;
+}
+
+.btn {
+	background-color: #4CAF50;
+	color: white;
+	margin: 5px;
+	width: 40%;
+	margin-left: auto;
+	margin-right: auto;
+	
+	
+}
+
+ul, li {
+  list-style-type: none;
+  list-style-position:inside;
+  margin:0;
+  padding:0;
+}
+
+.bubbles, .commentDisplay{
+  background-color: rgba(230, 230, 230, .5);
+  margin: 5px;
+  list-style-type: none;
+  border-style: solid;
+  border-color: green;
+  border-radius: 25px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-top: 12px;
+  
+}
+
+.bubbles{
+/*   max-width: 200px; */
+	
+	
+}
+
+.commentDisplay{
+  max-width: 350px;
+}
+
+.navbar{
+  background-color: rgb(0, 179, 60);
+  color: white;
+  position: fixed;
+}
+.navbar ul li{
+  background-color: rgb(0, 179, 60);
+  margin: 0px;
+  list-style-type: none;
+  border-style: none;
+  border-color: none;
+  border-radius: 0;
+  padding: 0px; 
+  color: white;
+}
+.footer {
+	
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #4CAF50;
+	color: white;
+	text-align: center;
+	padding: 20px;
+}
+
+ div #volunteerList{
+	max-height:600px;
+	overflow:hidden; 
+	overflow-y:scroll;}
+}
+
+
+
+
+
+
+
+
+
+
+
+

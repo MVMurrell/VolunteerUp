@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+.navbar{
+	background-color: rgb(0, 179, 60);
+	color: white;
+	position: fixed;
+}
+
+a:link{
+	color: white;
+	text-decoration:none;
+}
+
+.btn {
+	background-color: #4CAF50;
+	color: white;
+}
+.btn2 {
+	background-color: #4CAF50;
+	color: white;
+	padding: 16px 20px;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	opacity: 0.9;
+	margin: 5px;
+}
+
+#/* loginBox {
+	
+  position: relative;
+  width: 45%;
+  min-width: 400px;
+  max-width: 800px;
+  padding: 2%;
+  margin-left: 40%;
+  overflow: auto; needed so that div stretches with child divs
+} */
+
+.divider{
+    position:absolute;
+    left:50%;
+    top:10%;
+    bottom:10%;
+    border-left:1px solid white;
+}
+
+/* .container{
+	margin-left: 500px;
+} */
+
+.profilePicture img{
+	max-height: 400px;
+	max-width: 350px;
+	border: solid;
+}
+
+.navbar ul li{
+  background-color: rgb(0, 179, 60);
+  margin: 0px;
+  list-style-type: none;
+  border-style: none;
+  border-color: none;
+  border-radius: 0;
+  padding: 0px; 
+  color: white;
+}
+
+.footer {
+	
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #4CAF50;
+	color: white;
+	text-align: center;
+	padding: 20px;
+}
+
+
+#about {
+	text-align: center;
+	width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
