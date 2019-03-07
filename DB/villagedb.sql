@@ -111,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `project` (
   `end_date` DATE NULL,
   `description` TEXT NULL,
   `address_id` INT NULL,
-  `start_time` VARCHAR(45) NULL,
+  `start_time` TIME NULL,
   `hours_needed` INT NULL,
   `volunteers_needed` INT NULL,
   PRIMARY KEY (`id`),
@@ -261,7 +261,7 @@ CREATE TABLE IF NOT EXISTS `items_pv` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `items_id` INT NOT NULL,
   `pv_id` INT NOT NULL,
-  `quantity` INT NULL DEFAULT 1,
+  `quatity` INT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   INDEX `fk_to_items_idx` (`items_id` ASC),
   INDEX `fk_to_pv_from_items_pv_idx` (`pv_id` ASC),
@@ -273,7 +273,7 @@ CREATE TABLE IF NOT EXISTS `items_pv` (
   CONSTRAINT `fk_to_pv_from_items_pv`
     FOREIGN KEY (`pv_id`)
     REFERENCES `project_volunteer` (`id`)
-    ON DELETE CASCADE
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -436,13 +436,13 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `villagedb`;
-INSERT INTO `project` (`id`, `title`, `owner_id`, `active`, `start_date`, `end_date`, `description`, `address_id`, `start_time`, `hours_needed`, `volunteers_needed`) VALUES (1, 'TP Steves House', 1, 1, '2019-01-18', '2019-01-18', 'TP Everywhere on and around Steves house.', 1, '08:00 pm', 6, 6);
-INSERT INTO `project` (`id`, `title`, `owner_id`, `active`, `start_date`, `end_date`, `description`, `address_id`, `start_time`, `hours_needed`, `volunteers_needed`) VALUES (2, 'Clean up a Park', 2, 1, '2019-02-01', '2019-02-02', 'Pick up trash, pull weeds, remove graffiti, etc', 5, '08:00 am', 50, 10);
-INSERT INTO `project` (`id`, `title`, `owner_id`, `active`, `start_date`, `end_date`, `description`, `address_id`, `start_time`, `hours_needed`, `volunteers_needed`) VALUES (3, 'Build a Community TreeHouse', 4, 1, '2019-04-01', '2019-04-04', 'Build a Tree House in the Park', 4, '08:00 am', 100, 10);
-INSERT INTO `project` (`id`, `title`, `owner_id`, `active`, `start_date`, `end_date`, `description`, `address_id`, `start_time`, `hours_needed`, `volunteers_needed`) VALUES (4, 'Food Bank for Homeless', 7, 1, '2019-03-20', '2019-03-20', 'Bring food and hand it out', 9, '05:00 pm', 20, 10);
+INSERT INTO `project` (`id`, `title`, `owner_id`, `active`, `start_date`, `end_date`, `description`, `address_id`, `start_time`, `hours_needed`, `volunteers_needed`) VALUES (1, 'TP Steves House', 1, 1, '2019-01-18', '2019-01-18', 'TP Everywhere on and around Steves house.', 1, '20:00:00', 6, 6);
+INSERT INTO `project` (`id`, `title`, `owner_id`, `active`, `start_date`, `end_date`, `description`, `address_id`, `start_time`, `hours_needed`, `volunteers_needed`) VALUES (2, 'Clean up a Park', 2, 1, '2019-02-01', '2019-02-02', 'Pick up trash, pull weeds, remove graffiti, etc', 5, '08:00:00', 50, 10);
+INSERT INTO `project` (`id`, `title`, `owner_id`, `active`, `start_date`, `end_date`, `description`, `address_id`, `start_time`, `hours_needed`, `volunteers_needed`) VALUES (3, 'Build a Community TreeHouse', 4, 1, '2019-04-01', '2019-04-04', 'Build a Tree House in the Park', 4, '08:00:00', 100, 10);
+INSERT INTO `project` (`id`, `title`, `owner_id`, `active`, `start_date`, `end_date`, `description`, `address_id`, `start_time`, `hours_needed`, `volunteers_needed`) VALUES (4, 'Food Bank for Homeless', 7, 1, '2019-03-20', '2019-03-20', 'Bring food and hand it out', 9, '17:00:00', 20, 10);
 INSERT INTO `project` (`id`, `title`, `owner_id`, `active`, `start_date`, `end_date`, `description`, `address_id`, `start_time`, `hours_needed`, `volunteers_needed`) VALUES (5, 'Save The World', 10, 1, '2019-01-18', '2020-01-01', 'Stop Lex Luthor from Winning. End: World Hunger, War, and Global Warming. Clean up the oceans and save the turtles', 3, NULL, 1000000, 1000000);
-INSERT INTO `project` (`id`, `title`, `owner_id`, `active`, `start_date`, `end_date`, `description`, `address_id`, `start_time`, `hours_needed`, `volunteers_needed`) VALUES (6, 'Tear down the Berlin Wall', 8, 0, '1991-11-01', '1991-11-10', 'Tear Down this Wall!', 2, '08:00 am', 10000, 1000);
-INSERT INTO `project` (`id`, `title`, `owner_id`, `active`, `start_date`, `end_date`, `description`, `address_id`, `start_time`, `hours_needed`, `volunteers_needed`) VALUES (7, 'Shed the Slopes', 3, 1, '2019-03-20', NULL, 'Make sure the slopes are still fun', 10, '08:00 am', 40, 10);
+INSERT INTO `project` (`id`, `title`, `owner_id`, `active`, `start_date`, `end_date`, `description`, `address_id`, `start_time`, `hours_needed`, `volunteers_needed`) VALUES (6, 'Tear down the Berlin Wall', 8, 0, '1991-11-01', '1991-11-10', 'Tear Down this Wall!', 2, '08:00:00', 10000, 1000);
+INSERT INTO `project` (`id`, `title`, `owner_id`, `active`, `start_date`, `end_date`, `description`, `address_id`, `start_time`, `hours_needed`, `volunteers_needed`) VALUES (7, 'Shed the Slopes', 3, 1, '2019-03-20', NULL, 'Make sure the slopes are still fun', 10, '08:00:00', 40, 10);
 
 COMMIT;
 
@@ -559,7 +559,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `villagedb`;
-INSERT INTO `Items` (`id`, `name`) VALUES (1, 'Construction Skills');
+INSERT INTO `Items` (`id`, `name`) VALUES (1, 'Construction');
 INSERT INTO `Items` (`id`, `name`) VALUES (2, 'Shovel');
 INSERT INTO `Items` (`id`, `name`) VALUES (3, 'Hoe');
 INSERT INTO `Items` (`id`, `name`) VALUES (4, 'Drill');
@@ -572,42 +572,13 @@ INSERT INTO `Items` (`id`, `name`) VALUES (10, 'Pick Axe');
 INSERT INTO `Items` (`id`, `name`) VALUES (11, 'Bobcat');
 INSERT INTO `Items` (`id`, `name`) VALUES (12, 'Hazmat Suit');
 INSERT INTO `Items` (`id`, `name`) VALUES (13, 'Crutches');
-INSERT INTO `Items` (`id`, `name`) VALUES (14, 'Snack');
+INSERT INTO `Items` (`id`, `name`) VALUES (14, 'Sack');
 INSERT INTO `Items` (`id`, `name`) VALUES (15, 'Body Bag');
 INSERT INTO `Items` (`id`, `name`) VALUES (16, 'Rope');
 INSERT INTO `Items` (`id`, `name`) VALUES (17, 'Garden Shears');
 INSERT INTO `Items` (`id`, `name`) VALUES (18, 'Beer');
 INSERT INTO `Items` (`id`, `name`) VALUES (19, 'Weed Killer');
 INSERT INTO `Items` (`id`, `name`) VALUES (20, 'Toilet Paper');
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `items_pv`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `villagedb`;
-INSERT INTO `items_pv` (`id`, `items_id`, `pv_id`, `quantity`) VALUES (1, 20, 1, 5);
-INSERT INTO `items_pv` (`id`, `items_id`, `pv_id`, `quantity`) VALUES (2, 20, 2, 3);
-INSERT INTO `items_pv` (`id`, `items_id`, `pv_id`, `quantity`) VALUES (3, 18, 3, 5);
-INSERT INTO `items_pv` (`id`, `items_id`, `pv_id`, `quantity`) VALUES (4, 18, 1, 1);
-INSERT INTO `items_pv` (`id`, `items_id`, `pv_id`, `quantity`) VALUES (5, 14, 5, 1);
-INSERT INTO `items_pv` (`id`, `items_id`, `pv_id`, `quantity`) VALUES (6, 11, 4, 1);
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `items_project`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `villagedb`;
-INSERT INTO `items_project` (`id`, `project_id`, `item_id`, `quantity_needed`) VALUES (1, 1, 20, 5);
-INSERT INTO `items_project` (`id`, `project_id`, `item_id`, `quantity_needed`) VALUES (2, 1, 18, 12);
-INSERT INTO `items_project` (`id`, `project_id`, `item_id`, `quantity_needed`) VALUES (3, 1, 14, 5);
-INSERT INTO `items_project` (`id`, `project_id`, `item_id`, `quantity_needed`) VALUES (4, 1, 11, 1);
-INSERT INTO `items_project` (`id`, `project_id`, `item_id`, `quantity_needed`) VALUES (5, 1, 12, 1);
 
 COMMIT;
 
